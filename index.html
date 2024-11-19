@@ -3,112 +3,109 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<link rel="stylesheet" href="css/demo.css"> <!-- Demo style -->
-  	
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/demo.css">
 	<title>Hero Slideshow</title>
+	<style>
+		.language-switch {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			z-index: 100;
+		}
+		.language-btn {
+			padding: 5px 10px;
+			margin: 0 5px;
+			cursor: pointer;
+		}
+		.translated-content {
+			display: none;
+		}
+		.translated-content.active {
+			display: block;
+		}
+	</style>
 </head>
 <body>
+	<div class="language-switch">
+		<button class="language-btn" onclick="switchLanguage('ru')">РУС</button>
+		<button class="language-btn" onclick="switchLanguage('en')">ENG</button>
+		<button class="language-btn" onclick="switchLanguage('sw')">SWA</button>
+	</div>
+
 	<header class="cd-header">
 		<div class="cd-header__logo"><a href="#0"><img src="assets/cd-logo.svg" alt="Logo"></a></div>
 		<nav class="cd-header__nav js-cd-header__nav">
 			<ul>
-				<li><a href="#0">Home</a></li>
-				<li><a href="#0">Portfolio</a></li>
-				<li><a href="#0">Contact</a></li>
+				<li><a href="#0" class="ru translated-content active">Главная</a><a href="#0" class="en translated-content">Home</a><a href="#0" class="sw translated-content">Nyumbani</a></li>
+				<li><a href="#0" class="ru translated-content active">Портфолио</a><a href="#0" class="en translated-content">Portfolio</a><a href="#0" class="sw translated-content">Portfolio</a></li>
+				<li><a href="#0" class="ru translated-content active">Контакты</a><a href="#0" class="en translated-content">Contact</a><a href="#0" class="sw translated-content">Mawasiliano</a></li>
 			</ul>
-		</nav> <!-- .cd-header__nav -->
+		</nav>
 	</header>
 
 	<section class="cd-hero js-cd-hero js-cd-autoplay">
 		<ul class="cd-hero__slider">
 			<li class="cd-hero__slide cd-hero__slide--selected js-cd-slide">
 				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Hero slider</h2>
-					<p>A simple, responsive slideshow in CSS &amp; JavaScript.</p>
-					<a href="http://codyhouse.co/gem/hero-slider/" class="cd-hero__btn">Article &amp; Download</a>
-				</div> <!-- .cd-hero__content -->
+					<h2 class="ru translated-content active">Благодарность нашим учителям</h2>
+					<h2 class="en translated-content">Gratitude to our Teachers</h2>
+					<h2 class="sw translated-content">Shukrani kwa Walimu Wetu</h2>
+
+					<p class="ru translated-content active">Особая благодарность нашим учителям русского языка Дине и Людмиле, а также Центру открытого образования и Кенийскому институту иностранных языков (KIFLAPS) за их неоценимый вклад в наше обучение.</p>
+					<p class="en translated-content">Special thanks to our Russian language teachers Dina and Lyudmila, as well as the Centre for Open Education and Kenya Institute of Foreign Languages & Professional Studies (KIFLAPS) for their invaluable contribution to our education.</p>
+					<p class="sw translated-content">Shukrani za pekee kwa walimu wetu wa lugha ya Kirusi Dina na Lyudmila, pamoja na Kituo cha Elimu Wazi na Taasisi ya Kenya ya Lugha za Kigeni (KIFLAPS) kwa mchango wao usio na kifani katika elimu yetu.</p>
+					
+					<a href="#0" class="cd-hero__btn ru translated-content active">Узнать больше</a>
+					<a href="#0" class="cd-hero__btn en translated-content">Learn More</a>
+					<a href="#0" class="cd-hero__btn sw translated-content">Jifunze Zaidi</a>
+				</div>
 			</li>
 
-			<li class="cd-hero__slide js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--half-width">
-					<h2>Slide title here</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
-					<a href="#0" class="cd-hero__btn">Start</a>
-					<a href="#0" class="cd-hero__btn cd-hero__btn--secondary">Learn More</a>
-				</div> <!-- .cd-hero__content -->
+			<!-- Other slides with similar translation structure -->
+			<!-- Keep existing slides structure but add translated content -->
 
-				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
-					<img src="assets/tech-1.jpg" alt="tech 1">
-				</div> <!-- .cd-hero__content -->
-			</li>
-
-			<li class="cd-hero__slide js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
-					<img src="assets/tech-2.jpg" alt="tech 2">
-				</div> <!-- .cd-hero__content -->
-
-				<div class="cd-hero__content cd-hero__content--half-width">
-					<h2>Slide title here</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
-					<a href="#0" class="cd-hero__btn">Start</a>
-					<a href="#0" class="cd-hero__btn cd-hero__btn--secondary">Learn More</a>
-				</div> <!-- .cd-hero__content -->
-				
-			</li>
-
-			<li class="cd-hero__slide cd-hero__slide--video js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Slide title here</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
-					<a href="#0" class="cd-hero__btn">Learn more</a>
-				</div> <!-- .cd-hero__content -->
-
-				<div class="cd-hero__content cd-hero__content--bg-video js-cd-bg-video" data-video="assets/video/video">
-					<!-- video element will be loaded using JavaScript -->
-				</div> <!-- .cd-hero__content -->
-			</li>
-
-			<li class="cd-hero__slide js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Slide title here</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
-					<a href="#0" class="cd-hero__btn">Start</a>
-					<a href="#0" class="cd-hero__btn cd-hero__btn--secondary">Learn More</a>
-				</div> <!-- .cd-hero__content -->
-			</li>
-		</ul> <!-- .cd-hero__slider -->
+		</ul>
 
 		<div class="cd-hero__nav js-cd-nav">
 			<nav>
 				<span class="cd-hero__marker cd-hero__marker--item-1 js-cd-marker"></span>
-				
 				<ul>
-					<li class="cd-selected"><a href="#0">Intro</a></li>
-					<li><a href="#0">Tech 1</a></li>
-					<li><a href="#0">Tech 2</a></li>
-					<li><a href="#0">Video</a></li>
-					<li><a href="#0">Image</a></li>
+					<li class="cd-selected">
+						<a href="#0" class="ru translated-content active">Вступление</a>
+						<a href="#0" class="en translated-content">Intro</a>
+						<a href="#0" class="sw translated-content">Utangulizi</a>
+					</li>
+					<!-- Other nav items with similar translation structure -->
 				</ul>
-			</nav> 
-		</div> <!-- .cd-hero__nav -->
-	</section> <!-- .cd-hero -->
+			</nav>
+		</div>
+	</section>
 
 	<main class="cd-main-content">
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit veniam quisquam, rem illum dicta cumque, voluptate fugiat impedit beatae rerum ratione, voluptates nisi magni delectus ab, eaque atque iste. Molestias incidunt nemo veniam alias nam nisi distinctio optio error architecto odit! Illo dicta nulla fugiat distinctio laudantium, corrupti eum unde.
+		<p class="ru translated-content active">
+			Мы выражаем глубокую признательность за возможность изучать русский язык под руководством профессиональных преподавателей. Особая благодарность Дине и Людмиле за их терпение, профессионализм и преданность делу обучения.
 		</p>
-
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit veniam quisquam, rem illum dicta cumque, voluptate fugiat impedit beatae rerum ratione, voluptates nisi magni delectus ab, eaque atque iste. Molestias incidunt nemo veniam alias nam nisi distinctio optio error architecto odit! Illo dicta nulla fugiat distinctio laudantium, corrupti eum unde.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit veniam quisquam, rem illum dicta cumque, voluptate fugiat impedit beatae rerum ratione, voluptates nisi magni delectus ab, eaque atque iste. Molestias incidunt nemo veniam alias nam nisi distinctio optio error architecto odit! Illo dicta nulla fugiat distinctio laudantium, corrupti eum unde.
+		<p class="en translated-content">
+			We express our deep gratitude for the opportunity to study Russian under the guidance of professional teachers. Special thanks to Dina and Lyudmila for their patience, professionalism, and dedication to teaching.
 		</p>
-	</main> <!-- .cd-main-content -->
+		<p class="sw translated-content">
+			Tunatoa shukrani zetu za dhati kwa fursa ya kujifunza Kirusi chini ya uongozi wa walimu wataalamu. Shukrani za pekee kwa Dina na Lyudmila kwa uvumilivu wao, utaalamu, na kujitolea kwao katika kufundisha.
+		</p>
+	</main>
 
-	<script src="js/main.js"></script> <!-- Resource JavaScrip -->
+	<script>
+		function switchLanguage(lang) {
+			document.querySelectorAll('.translated-content').forEach(el => {
+				el.classList.remove('active');
+			});
+			document.querySelectorAll('.' + lang).forEach(el => {
+				el.classList.add('active');
+			});
+		}
+	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

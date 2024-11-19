@@ -1,111 +1,194 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/demo.css">
-	<title>Hero Slideshow</title>
-	<style>
-		.language-switch {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-			z-index: 100;
-		}
-		.language-btn {
-			padding: 5px 10px;
-			margin: 0 5px;
-			cursor: pointer;
-		}
-		.translated-content {
-			display: none;
-		}
-		.translated-content.active {
-			display: block;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <title>Hero Slideshow</title>
+    <style>
+        /* Reset styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Language switcher styles */
+        .language-switch {
+            position: fixed; /* Changed from absolute to fixed */
+            top: 10px;
+            right: 10px;
+            z-index: 1000; /* Increased z-index */
+            background: rgba(255, 255, 255, 0.9); /* Added background */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added shadow */
+        }
+
+        .language-btn {
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .language-btn:hover {
+            background: #0056b3;
+        }
+
+        .language-btn.active {
+            background: #004085;
+        }
+
+        /* Content visibility */
+        .translated-content {
+            display: none;
+        }
+
+        .translated-content.active {
+            display: block;
+        }
+
+        /* Header styles */
+        .cd-header {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cd-header__nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cd-header__nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Hero section styles */
+        .cd-hero {
+            position: relative;
+            min-height: 500px;
+            background: #f5f5f5;
+            padding: 50px 20px;
+        }
+
+        .cd-hero__content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cd-hero__btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .language-switch {
+                top: 5px;
+                right: 5px;
+            }
+
+            .language-btn {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .cd-header__nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="language-switch">
-		<button class="language-btn" onclick="switchLanguage('ru')">РУС</button>
-		<button class="language-btn" onclick="switchLanguage('en')">ENG</button>
-		<button class="language-btn" onclick="switchLanguage('sw')">SWA</button>
-	</div>
+    <div class="language-switch">
+        <button class="language-btn" onclick="switchLanguage('ru')">РУС</button>
+        <button class="language-btn" onclick="switchLanguage('en')">ENG</button>
+        <button class="language-btn" onclick="switchLanguage('sw')">SWA</button>
+    </div>
 
-	<header class="cd-header">
-		<div class="cd-header__logo"><a href="#0"><img src="assets/cd-logo.svg" alt="Logo"></a></div>
-		<nav class="cd-header__nav js-cd-header__nav">
-			<ul>
-				<li><a href="#0" class="ru translated-content active">Главная</a><a href="#0" class="en translated-content">Home</a><a href="#0" class="sw translated-content">Nyumbani</a></li>
-				<li><a href="#0" class="ru translated-content active">Портфолио</a><a href="#0" class="en translated-content">Portfolio</a><a href="#0" class="sw translated-content">Portfolio</a></li>
-				<li><a href="#0" class="ru translated-content active">Контакты</a><a href="#0" class="en translated-content">Contact</a><a href="#0" class="sw translated-content">Mawasiliano</a></li>
-			</ul>
-		</nav>
-	</header>
+    <header class="cd-header">
+        <div class="cd-header__logo"><a href="#0">Logo</a></div>
+        <nav class="cd-header__nav">
+            <ul>
+                <li><a href="#0" class="ru translated-content active">Главная</a><a href="#0" class="en translated-content">Home</a><a href="#0" class="sw translated-content">Nyumbani</a></li>
+                <li><a href="#0" class="ru translated-content active">Портфолио</a><a href="#0" class="en translated-content">Portfolio</a><a href="#0" class="sw translated-content">Portfolio</a></li>
+                <li><a href="#0" class="ru translated-content active">Контакты</a><a href="#0" class="en translated-content">Contact</a><a href="#0" class="sw translated-content">Mawasiliano</a></li>
+            </ul>
+        </nav>
+    </header>
 
-	<section class="cd-hero js-cd-hero js-cd-autoplay">
-		<ul class="cd-hero__slider">
-			<li class="cd-hero__slide cd-hero__slide--selected js-cd-slide">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2 class="ru translated-content active">Благодарность нашим учителям</h2>
-					<h2 class="en translated-content">Gratitude to our Teachers</h2>
-					<h2 class="sw translated-content">Shukrani kwa Walimu Wetu</h2>
+    <section class="cd-hero">
+        <div class="cd-hero__content">
+            <h2 class="ru translated-content active">Благодарность нашим учителям</h2>
+            <h2 class="en translated-content">Gratitude to our Teachers</h2>
+            <h2 class="sw translated-content">Shukrani kwa Walimu Wetu</h2>
 
-					<p class="ru translated-content active">Особая благодарность нашим учителям русского языка Дине и Людмиле, а также Центру открытого образования и Кенийскому институту иностранных языков (KIFLAPS) за их неоценимый вклад в наше обучение.</p>
-					<p class="en translated-content">Special thanks to our Russian language teachers Dina and Lyudmila, as well as the Centre for Open Education and Kenya Institute of Foreign Languages & Professional Studies (KIFLAPS) for their invaluable contribution to our education.</p>
-					<p class="sw translated-content">Shukrani za pekee kwa walimu wetu wa lugha ya Kirusi Dina na Lyudmila, pamoja na Kituo cha Elimu Wazi na Taasisi ya Kenya ya Lugha za Kigeni (KIFLAPS) kwa mchango wao usio na kifani katika elimu yetu.</p>
-					
-					<a href="#0" class="cd-hero__btn ru translated-content active">Узнать больше</a>
-					<a href="#0" class="cd-hero__btn en translated-content">Learn More</a>
-					<a href="#0" class="cd-hero__btn sw translated-content">Jifunze Zaidi</a>
-				</div>
-			</li>
+            <p class="ru translated-content active">Особая благодарность нашим учителям русского языка Дине и Людмиле, а также Центру открытого образования и Кенийскому институту иностранных языков (KIFLAPS) за их неоценимый вклад в наше обучение.</p>
+            <p class="en translated-content">Special thanks to our Russian language teachers Dina and Lyudmila, as well as the Centre for Open Education and Kenya Institute of Foreign Languages & Professional Studies (KIFLAPS) for their invaluable contribution to our education.</p>
+            <p class="sw translated-content">Shukrani za pekee kwa walimu wetu wa lugha ya Kirusi Dina na Lyudmila, pamoja na Kituo cha Elimu Wazi na Taasisi ya Kenya ya Lugha za Kigeni (KIFLAPS) kwa mchango wao usio na kifani katika elimu yetu.</p>
+            
+            <a href="#0" class="cd-hero__btn ru translated-content active">Узнать больше</a>
+            <a href="#0" class="cd-hero__btn en translated-content">Learn More</a>
+            <a href="#0" class="cd-hero__btn sw translated-content">Jifunze Zaidi</a>
+        </div>
+    </section>
 
-			<!-- Other slides with similar translation structure -->
-			<!-- Keep existing slides structure but add translated content -->
+    <main class="cd-main-content">
+        <p class="ru translated-content active">
+            Мы выражаем глубокую признательность за возможность изучать русский язык под руководством профессиональных преподавателей. Особая благодарность Дине и Людмиле за их терпение, профессионализм и преданность делу обучения.
+        </p>
+        <p class="en translated-content">
+            We express our deep gratitude for the opportunity to study Russian under the guidance of professional teachers. Special thanks to Dina and Lyudmila for their patience, professionalism, and dedication to teaching.
+        </p>
+        <p class="sw translated-content">
+            Tunatoa shukrani zetu za dhati kwa fursa ya kujifunza Kirusi chini ya uongozi wa walimu wataalamu. Shukrani za pekee kwa Dina na Lyudmila kwa uvumilivu wao, utaalamu, na kujitolea kwao katika kufundisha.
+        </p>
+    </main>
 
-		</ul>
+    <script>
+        function switchLanguage(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            document.querySelector(`.language-btn[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Switch content
+            document.querySelectorAll('.translated-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.' + lang).forEach(el => {
+                el.classList.add('active');
+            });
+        }
 
-		<div class="cd-hero__nav js-cd-nav">
-			<nav>
-				<span class="cd-hero__marker cd-hero__marker--item-1 js-cd-marker"></span>
-				<ul>
-					<li class="cd-selected">
-						<a href="#0" class="ru translated-content active">Вступление</a>
-						<a href="#0" class="en translated-content">Intro</a>
-						<a href="#0" class="sw translated-content">Utangulizi</a>
-					</li>
-					<!-- Other nav items with similar translation structure -->
-				</ul>
-			</nav>
-		</div>
-	</section>
-
-	<main class="cd-main-content">
-		<p class="ru translated-content active">
-			Мы выражаем глубокую признательность за возможность изучать русский язык под руководством профессиональных преподавателей. Особая благодарность Дине и Людмиле за их терпение, профессионализм и преданность делу обучения.
-		</p>
-		<p class="en translated-content">
-			We express our deep gratitude for the opportunity to study Russian under the guidance of professional teachers. Special thanks to Dina and Lyudmila for their patience, professionalism, and dedication to teaching.
-		</p>
-		<p class="sw translated-content">
-			Tunatoa shukrani zetu za dhati kwa fursa ya kujifunza Kirusi chini ya uongozi wa walimu wataalamu. Shukrani za pekee kwa Dina na Lyudmila kwa uvumilivu wao, utaalamu, na kujitolea kwao katika kufundisha.
-		</p>
-	</main>
-
-	<script>
-		function switchLanguage(lang) {
-			document.querySelectorAll('.translated-content').forEach(el => {
-				el.classList.remove('active');
-			});
-			document.querySelectorAll('.' + lang).forEach(el => {
-				el.classList.add('active');
-			});
-		}
-	</script>
-	<script src="js/main.js"></script>
+        // Set initial active state
+        document.querySelector('.language-btn[onclick="switchLanguage(\'ru\')"]').classList.add('active');
+    </script>
 </body>
 </html>
